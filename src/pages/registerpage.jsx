@@ -14,13 +14,14 @@ export const RegisterPage = () => {
 
   const onSubmit = handleSubmit(async (values) => {
     await signUp(values);
-    console.log(isAuthenticated)
-    if (isAuthenticated) navigate("/");
+    console.log(isAuthenticated);
   });
 
-
-
-
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/");
+    }
+  }, [isAuthenticated, navigate]);
 
   return (
     <>
