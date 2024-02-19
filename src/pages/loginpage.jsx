@@ -2,6 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useForm } from "react-hook-form";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function LoginPage() {
   const {
@@ -10,7 +11,12 @@ export default function LoginPage() {
     formState: { errors },
   } = useForm();
   const { signIn, errores, isAuthenticated } = useAuth();
+  const toastError = () => {
+    toast("El email de usuario es requerido");
+  };
+
   const onSubmit = handleSubmit(async (valores) => {
+    toastError;
     await signIn(valores);
   });
   const navigate = useNavigate();
@@ -20,6 +26,7 @@ export default function LoginPage() {
 
   return (
     <>
+      <ToastContainer />
       <section className="bg-[#0D1117] h-screen flex flex-col pt-[2%] items-center w-screen">
         <svg
           height="68"

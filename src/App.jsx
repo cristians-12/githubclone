@@ -7,6 +7,7 @@ import { RegisterPage } from "./pages/registerpage";
 import { AuthProvider } from "./context/AuthContext";
 import { Home } from "./pages/homepage";
 import ProtectedRoute from "./ProtectedRoute";
+import 'react-toastify/dist/ReactToastify.css';
 import LoginPage from "./pages/loginpage";
 
 function App() {

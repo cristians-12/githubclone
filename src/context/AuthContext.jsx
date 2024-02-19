@@ -28,8 +28,8 @@ export const AuthProvider = ({ children }) => {
       console.log(error);
     }
   };
+
   const signIn = async (user) => {
-    
     try {
       const resp = await soliLogin(user);
       setUser(resp.data);
@@ -56,20 +56,20 @@ export const AuthProvider = ({ children }) => {
   }, [errores]);
 
   useEffect(() => {
-    async function checkLogin (){
+    async function checkLogin() {
       const cookies = Cookies.get();
-      console.log(cookies)
-      if(cookies.token){
+      console.log(cookies);
+      if (cookies.token) {
         try {
           const resp = await verifToken(cookies.token);
-          console.log(resp)
-          if(!resp.data) setisAuthenticated(false);
-          setisAuthenticated(true)
-          setUser(resp.data)
+          console.log(resp);
+          if (!resp.data) setisAuthenticated(false);
+          setisAuthenticated(true);
+          setUser(resp.data);
         } catch (error) {
-          console.log(error)
+          console.log(error);
           setisAuthenticated(false);
-          setUser(null)
+          setUser(null);
         }
       }
     }
