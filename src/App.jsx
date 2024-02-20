@@ -9,6 +9,7 @@ import { Home } from "./pages/homepage";
 import ProtectedRoute from "./ProtectedRoute";
 import 'react-toastify/dist/ReactToastify.css';
 import LoginPage from "./pages/loginpage";
+import { ProfileSelected } from "./pages/profileSelected";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             </Route>
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage/>} />
+            <Route path="/profileSearch" element={<ProfileSelected/>} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

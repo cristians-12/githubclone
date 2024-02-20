@@ -8,7 +8,6 @@ export default function NavBar() {
   const { user } = useAuth();
   const [inputt, setInputt] = useState(null);
   const [dataSearch,setDataSearch] = useState(null);
-  const [mostrar,setMostrar] = useState(false);
 
   const inputChange = async () => {
     // let busqueda = e.target.value;
@@ -18,7 +17,7 @@ export default function NavBar() {
     );
     // console.log(response)
     const data = await response.json();
-    console.log(data);
+    // console.log(data);
     setDataSearch(data.items)
   };
 
