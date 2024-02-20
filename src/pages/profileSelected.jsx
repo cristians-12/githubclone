@@ -5,6 +5,7 @@ import { useState } from "react";
 
 export const ProfileSelected = () => {
   const [repos, setRepos] = useState(null);
+  const [shouldRender, setShouldRender] = useState(false);
 
   const location = useLocation();
   const { state } = location;
@@ -17,12 +18,17 @@ export const ProfileSelected = () => {
       setRepos(data);
     };
     fetching();
-  }, []);
+  }, [shouldRender]);
 
-  console.log(location.state);
+  const handleRenderUpdate = () => {
+    // console.log("renderizate profileSelected.jsx")
+    setShouldRender(!shouldRender); 
+  };
+
+//   console.log(location.state);
   return (
     <>
-    <NavBar/>
+    <NavBar onRenderUpdate={handleRenderUpdate} />
       <main className="bg-[#0f0e1b] flex px-52 pt-10">
         <div className="w-[20%]">
           <img src={state.avatar_url} className="rounded-full w-100" alt="" />

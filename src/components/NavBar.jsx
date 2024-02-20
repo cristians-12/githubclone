@@ -3,29 +3,29 @@ import { useAuth } from "../context/AuthContext";
 import { useState } from "react";
 import { PopupSearch } from "./popupBusqueda";
 
-export default function NavBar() {
-
+export default function NavBar({ onRenderUpdate }) {
   const { user } = useAuth();
   const [inputt, setInputt] = useState(null);
-  const [dataSearch,setDataSearch] = useState(null);
+  const [dataSearch, setDataSearch] = useState(null);
 
   const inputChange = async () => {
-    // let busqueda = e.target.value;
-    // console.log(inputt)
     const response = await fetch(
       `https://api.github.com/search/users?q=${inputt}&per_page=5`
     );
     // console.log(response)
     const data = await response.json();
     // console.log(data);
-    setDataSearch(data.items)
+    setDataSearch(data.items);
   };
 
-
   return (
-    <div  onClick={()=>{setDataSearch(null)}}>
+    <div
+      onClick={() => {
+        setDataSearch(null);
+      }}
+    >
       <header className="bg-black w-full flex flex-col gap-5 p-5">
-        {dataSearch && <PopupSearch datos={dataSearch} />}
+        {dataSearch && <PopupSearch datos={dataSearch} renderUpdate={onRenderUpdate} />}
         <div className="flex justify-between">
           <div className="flex gap-3 items-center">
             <div
