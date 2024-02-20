@@ -45,7 +45,7 @@ export const ProfileSelected = () => {
                 <li key={element.id}>
                   <div className="border w-[400px] m-5 rounded-lg border-gray-500 px-5 py-5 h-[150px]">
                     <div className="flex justify-between">
-                      <h1 className="text-blue-600 font-bold hover:underline">{element.name}</h1>
+                      <h1 className="text-blue-600 font-bold hover:underline cursor-pointer">{element.name}</h1>
                       <h1 className="border font-medium text-gray-400 border-gray-500 rounded-full px-3 py-1">{element.visibility}</h1>
                     </div>
                   </div>
