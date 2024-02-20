@@ -11,7 +11,7 @@ export const ProfileSelected = () => {
   const { state } = location;
   useEffect(() => {
     const fetching = async () => {
-      const response = await fetch(`${state.repos_url}`);
+      const response = await fetch(`${state.repos_url}?per_page=6`);
       // console.log(response)
       const data = await response.json();
     //   console.log(data);
@@ -29,7 +29,7 @@ export const ProfileSelected = () => {
   return (
     <>
     <NavBar onRenderUpdate={handleRenderUpdate} />
-      <main className="bg-[#0f0e1b] flex px-52 pt-10">
+      <main className="bg-[#0f0e1b] flex px-52 pt-10 h-[82vh]">
         <div className="w-[20%]">
           <img src={state.avatar_url} className="rounded-full w-100" alt="" />
           <h1 className="font-bold mt-5">{state.login}</h1>
