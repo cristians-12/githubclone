@@ -4,7 +4,7 @@ import Overview from "./OverView";
 export default function Sai(){
     return (
         <>
-        <div className="bg-[#161B22] h-screen flex px-[10%]">
+        <div className="bg-[#161B22] h-screen flex w-[100%]">
             <Perfil/>
             <Overview/>
             <Repositorios/>
